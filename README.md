@@ -1,12 +1,13 @@
 # NTL_POP
-The project code of spatial matching between the remote sensing data of night lights and the population data in different time periods.
+The project of Spatiotemporal matching between nighttime light intensity and population activity density at different scales. Including the data and code used in the research.
 
-1. Data Processing
-(1) Convert the luminous data (raster) to surface SHP, and the code file name is: data_processing_NTL_tif2mshp
-(2) Aggregate the population data (CSV) with the code file name: data_processing_POP_excel_sum
-(3) The aggregated population data (CSV) is converted to a point shp file, and the code file name is: data_processing_POP_xy2d
-(4) Perform in-range summarization (analysis tools) in ArcGIS Pro. Enter the NTL shp and the POP shp of the population in the four periods, the summary field is value, and the statistics are sum. Perform four times, saving the results as four SHP files each.
-2. Collinearity test
-The nighttime light brightness values and population numbers of the four periods of the shp files were summarized and stored in a CSV file for collinearity test, and the code file name is: Multicollinearity test
-3. Bivariate spatial autocorrelation
-Calculate the Moran index chart and LISA chart for four periods. The code file name is: LISA
+1.data
+(1)SDGSAT-1 data: The file name is RGB-B, which is the nighttime light remote sensing data used in the study. Due to the large size of the original image, the preprocessed image was uploaded.
+(2)BUD data: The file name is budejan, and the file format is CSV, which records the latitude and longitude and the corresponding number of active population.
+
+2.code
+Including NTL and BUD data preprocessing code, as well as the processing of merging the two into vector data, including the calculation of bivariate spatial autocorrelation and consistency indicators.
+(1)SDGSAT_CODE：There are a total of 5 Python code files that provide detailed records of the NTL data preprocessing process.
+(2)BUD_CODE:There are 2 Python code files in total, detailing the process of merging and converting BUD data into SHP files.
+(3)sbl.py：Used for bivariate spatial autocorrelation of data  nighttime light intensity and population activity density.
+(4)ci.py：Used to calculate the consistency of bivariate spatial autocorrelation clustering results at different time periods.
